@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102c35">
+  <meta name="description" content="A focused Maharashtra SSC Class 10 study planner, performance tracker, and alarm dashboard.">
+  <title>YUKTI — SSC Focus</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-visual">
+      <div class="auth-orbit orbit-one"></div><div class="auth-orbit orbit-two"></div>
+      <div class="auth-brand"><span class="brand-mark">Y</span><span>YUKTI<span class="brand-sub">/ SSC FOCUS</span></span></div>
+      <div class="auth-message">
+        <div class="eyebrow light-eyebrow"><span class="eyebrow-dot"></span> YOUR PERSONAL STUDY COMMAND CENTRE</div>
+        <h1>Make every<br><em>study hour</em><br>count.</h1>
+        <p>A calmer, smarter way to prepare for your Maharashtra SSC boards — one focused session at a time.</p>
+        <div class="auth-proof-row"><div class="proof-item"><strong>30</strong><span>day plan</span></div><i></i><div class="proof-item"><strong>10h</strong><span>daily focus</span></div><i></i><div class="proof-item"><strong>10</strong><span>subject areas</span></div></div>
+      </div>
+      <div class="auth-bottom-note">UNDERSTAND DEEPLY · PRACTISE CONSISTENTLY · PERFORM CONFIDENTLY</div>
+    </div>
+    <div class="auth-panel">
+      <div class="auth-panel-inner">
+        <div class="mobile-auth-brand"><span class="brand-mark">Y</span><span>YUKTI<span class="brand-sub">/ SSC FOCUS</span></span></div>
+        <div class="auth-heading"><div class="eyebrow">WELCOME TO YOUR FOCUS SPACE</div><h2 id="auth-title">Sign in to continue</h2><p id="auth-subtitle">Your plan, progress and study records stay synced to your account.</p></div>
+        <form id="auth-form" class="auth-form">
+          <label id="name-field" class="field-wrap hidden"><span>Your name</span><input id="auth-name" type="text" autocomplete="name" placeholder="Enter your name"></label>
+          <label class="field-wrap"><span>Email address</span><input id="auth-email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label class="field-wrap"><span>Password</span><div class="password-wrap"><input id="auth-password" type="password" autocomplete="current-password" placeholder="At least 6 characters" required minlength="6"><button type="button" class="password-toggle" id="password-toggle" aria-label="Show password">Show</button></div></label>
+          <button class="btn btn-primary btn-wide" type="submit" id="auth-submit">Sign in <span>↗</span></button>
+          <button class="text-button reset-button" id="reset-password" type="button">Forgot password?</button>
+          <div class="auth-divider"><span></span> <small>YOUR PERSONAL WORKSPACE</small> <span></span></div>
+          <p class="auth-switch" id="auth-switch">New here? <button type="button" id="auth-mode-toggle">Create an account</button></p>
+          <p class="auth-error" id="auth-error" role="alert"></p>
+        </form>
+        <div class="auth-security"><span class="security-icon">◆</span> Your study data is private to your signed-in account.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><span class="brand-mark">Y</span><span>YUKTI<span class="brand-sub">/ SSC FOCUS</span></span><button class="sidebar-close" id="sidebar-close" aria-label="Close menu">×</button></div>
+      <div class="sidebar-plan"><div class="plan-kicker">YOUR PROGRAMME</div><div class="plan-name">SSC · CLASS 10</div><div class="plan-progress"><span id="sidebar-day-label">DAY 01 / 30</span><div class="mini-progress"><i id="sidebar-progress-fill"></i></div></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon" data-icon="grid"></span><span>Overview</span><kbd>01</kbd></button>
+        <button class="nav-item" data-page="schedule"><span class="nav-icon" data-icon="calendar"></span><span>30-day schedule</span><kbd>02</kbd></button>
+        <button class="nav-item" data-page="studylog"><span class="nav-icon" data-icon="book"></span><span>Study records</span><kbd>03</kbd></button>
+        <button class="nav-item" data-page="performance"><span class="nav-icon" data-icon="chart"></span><span>Performance</span><kbd>04</kbd></button>
+        <button class="nav-item" data-page="notes"><span class="nav-icon" data-icon="note"></span><span>Quick notes</span><kbd>05</kbd></button>
+        <button class="nav-item" data-page="alarms"><span class="nav-icon" data-icon="alarm"></span><span>Alarms & reminders</span><kbd>06</kbd></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="focus-tip"><div class="tip-icon">✦</div><p>Small, focused sessions create lasting progress.</p><span>THE YUKTI METHOD</span></div>
+        <button class="nav-item settings-nav" data-page="settings"><span class="nav-icon" data-icon="settings"></span><span>Settings</span></button>
+        <div class="sidebar-user"><div class="avatar" id="sidebar-avatar">S</div><div class="user-meta"><strong id="sidebar-user-name">Student</strong><span id="sidebar-user-email">Your account</span></div><button id="sign-out" class="signout-btn" title="Sign out" aria-label="Sign out"><span data-icon="logout"></span></button></div>
+      </div>
+    </aside>
+    <div class="mobile-scrim" id="mobile-scrim"></div>
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left"><button id="menu-toggle" class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button><div><div class="breadcrumb">YUKTI <span>/</span> <b id="breadcrumb-page">OVERVIEW</b></div><div class="topbar-date" id="topbar-date">Thursday, 5 November 2026</div></div></div>
+        <div class="topbar-actions"><div class="sync-indicator"><i></i><span id="sync-label">Cloud synced</span></div><button class="icon-button notification-button" id="enable-notifications" title="Enable notifications" aria-label="Enable notifications"><span data-icon="bell"></span><i id="notification-dot"></i></button><button class="btn btn-primary top-focus-btn" id="quick-focus"><span data-icon="play"></span> Start focus</button></div>
+      </header>
+      <section class="page-content" id="page-content" aria-live="polite"></section>
+      <footer class="app-footer"><span>YUKTI · YOUR SSC STUDY COMMAND CENTRE</span><span>FOCUS ON PROGRESS, NOT PERFECTION.</span></footer>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="alarm-overlay" class="alarm-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="alarm-title"><div class="alarm-card"><div class="alarm-wave">◖ ◗</div><div class="eyebrow">YUKTI REMINDER</div><h2 id="alarm-title">It's time to focus</h2><p id="alarm-message">Your scheduled study session is ready.</p><div class="alarm-clock" id="alarm-clock">00:00</div><div class="alarm-actions"><button class="btn btn-secondary" id="alarm-snooze">Snooze 5 min</button><button class="btn btn-primary" id="alarm-dismiss">Dismiss alarm</button></div><small>Keep this page open for on-time browser reminders.</small></div></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
